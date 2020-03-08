@@ -13,17 +13,15 @@ namespace DatingApp.API.Controllers
   [ApiController]
   public class ValuesController : ControllerBase
   {
-    // 
     private readonly DataContext _context;
-
     public ValuesController(DataContext context)
     {
       this._context = context;
-    }
 
+    }
     // GET api/values
     [HttpGet]
-    public async Task <ActionResult<IEnumerable<Value>>> Get()
+    public async Task<ActionResult<IEnumerable<Value>>> Get()
     {
       var values = await _context.Values.ToListAsync();
       return Ok(values);
@@ -31,7 +29,7 @@ namespace DatingApp.API.Controllers
 
     // GET api/values/5
     [HttpGet("{id}")]
-    public async Task <ActionResult<Value>> Get(int id)
+    public async Task<ActionResult<Value>> Get(int id)
     {
       var value = await _context.Values.FindAsync(id);
       return Ok(value);

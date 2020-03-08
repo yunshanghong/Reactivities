@@ -2,7 +2,7 @@
 
 namespace Persistence.Migrations
 {
-    public partial class SeedValues : Migration
+    public partial class SecondValues : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,6 +20,16 @@ namespace Persistence.Migrations
                 table: "Values",
                 columns: new[] { "Id", "Name" },
                 values: new object[] { 3, "Value 103" });
+
+            migrationBuilder.InsertData(
+                table: "Values",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 4, "Value 104" });
+
+            migrationBuilder.InsertData(
+                table: "Values",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 5, "Value 105" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -38,6 +48,16 @@ namespace Persistence.Migrations
                 table: "Values",
                 keyColumn: "Id",
                 keyValue: 3);
+
+            migrationBuilder.DeleteData(
+                table: "Values",
+                keyColumn: "Id",
+                keyValue: 4);
+
+            migrationBuilder.DeleteData(
+                table: "Values",
+                keyColumn: "Id",
+                keyValue: 5);
         }
     }
 }
